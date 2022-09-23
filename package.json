@@ -8,5 +8,6 @@
     "auto-changelog": "^2.4.0",
     "husky": "^8.0.1",
     "release-it": "^15.4.2"
-  }
+  },
+  "version": "0.0.1"
 }
