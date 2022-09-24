@@ -9,9 +9,9 @@ const Content = (props) => {
   let part1 = props.parts[0].name;
   let part2 = props.parts[1].name;
   let part3 = props.parts[2].name;
-  let exercises1 = props.parts[0].exercises1;
-  let exercises2 = props.parts[0].exercises2;
-  let exercises3 = props.parts[0].exercises3;
+  let exercises1 = props.parts[0].exercises;
+  let exercises2 = props.parts[1].exercises;
+  let exercises3 = props.parts[2].exercises;
   return (
     <>
       <Part part={part1} exercises={exercises1} />
