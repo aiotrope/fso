@@ -6,37 +6,29 @@ const Title = ({ title }) => {
 };
 
 const Statistics = (props) => {
-  /* 
-  * destructure props inside the function
-  */
+  /*
+   * destructure props inside the function
+   */
   let { good, neutral, bad } = props;
-
+  let subtitle = "statistics";
   let total = good + neutral + bad;
   let average = (good - bad) / total;
   let positive_res = (good / total) * 100;
   return (
     <div>
-      <h1>statistics</h1>
-
-      {positive_res ? (
-        <p>
-          good {good}
-          <br />
-          neutral {neutral} <br />
-          bad {bad}
-          <br />
-          all {total}
-          <br />
-          average {average}
-          <br />
-          positive {positive_res} %
-        </p>
-      ) : (
-        ""
-      )}
-
-      {isNaN(positive_res) && <p>No feedback given</p>}
-
+      <h1>{subtitle}</h1>
+      <p>
+        good {good}
+        <br />
+        neutral {neutral} <br />
+        bad {bad}
+        <br />
+        all {total}
+        <br />
+        average {isNaN(average) ? 0 : average}
+        <br />
+        positive {isNaN(positive_res) ? 0 : positive_res} %
+      </p>
     </div>
   );
 };
