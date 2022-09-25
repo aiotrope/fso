@@ -5,30 +5,43 @@ const Title = ({ title }) => {
   return <h1>{title}</h1>;
 };
 
+const StatisticLine = ({ text, value }) => {
+  return [text, value];
+};
+
 const Statistics = (props) => {
   /*
    * destructure props inside the function
    */
   let { good, neutral, bad } = props;
-  let subtitle = "statistics";
+
   let total = good + neutral + bad;
   let average = (good - bad) / total;
   let positive_res = (good / total) * 100;
   return (
     <div>
-      <h1>{subtitle}</h1>
-      <p>
-        good {good}
-        <br />
-        neutral {neutral} <br />
-        bad {bad}
-        <br />
-        all {total}
-        <br />
-        average {isNaN(average) ? 0 : average}
-        <br />
-        positive {isNaN(positive_res) ? 0 : positive_res} %
-      </p>
+      <h1>statistics</h1>
+
+      {positive_res ? (
+        <p>
+          <StatisticLine text="good " value={good} />
+          <br />
+          <StatisticLine text="neutral " value={neutral} />
+          <br />
+          <StatisticLine text="bad " value={bad} />
+          <br />
+          <StatisticLine text="all " value={total} />
+          <br />
+          
+          <StatisticLine text="average " value={average} />
+          <br />
+          <StatisticLine text="positive " value={positive_res} /> %
+        </p>
+      ) : (
+        ""
+      )}
+
+      {isNaN(positive_res) && <p>No feedback given</p>}
     </div>
   );
 };
@@ -39,12 +52,27 @@ const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  const addGood = () => {
+    let add = good + 1;
+    setGood(add);
+  };
+
+  const addNeutral = () => {
+    let add = neutral + 1;
+    setNeutral(add);
+  };
+
+  const addBad = () => {
+    let add = bad + 1;
+    setBad(add);
+  };
+
   return (
     <div>
       <Title title={title} />
-      <button onClick={() => setGood(good + 1)}>good</button>
-      <button onClick={() => setNeutral(neutral + 1)}>neutral</button>
-      <button onClick={() => setBad(bad + 1)}>bad</button>
+      <button onClick={addGood}>good</button>
+      <button onClick={addNeutral}>neutral</button>
+      <button onClick={addBad}>bad</button>
 
       <Statistics good={good} neutral={neutral} bad={bad} />
     </div>
