@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// destructuring props
 const Title = ({ title }) => {
   return <h1>{title}</h1>;
 };
