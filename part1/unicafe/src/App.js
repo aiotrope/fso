@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 // destructuring props
 const Title = ({ title }) => {
