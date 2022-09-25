@@ -12,17 +12,31 @@ const App = () => {
   ];
 
   const [selected, setSelected] = useState(0);
+  const [arr, setArr] = useState([]);
 
   const getRandomInt = () => {
     let num = Math.floor(Math.random() * 7);
     return num;
   };
-
+  //let ab = [];
+  arr.push(selected);
+  let ab = {...arr}
+ console.log(ab)
   return (
     <div>
       {anecdotes[selected]}
       <br />
-      <button onClick={() => setSelected(getRandomInt())}>next anectode</button>
+      <button
+        onClick={() => {
+          setSelected(getRandomInt());
+          setArr((arr) => [...arr, selected]);
+        }}
+      >
+        next anectode
+      </button>
+      {selected} <br />
+      <br />
+      {arr}
     </div>
   );
 };
