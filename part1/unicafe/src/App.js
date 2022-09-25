@@ -5,8 +5,13 @@ const Title = ({ title }) => {
   return <h1>{title}</h1>;
 };
 
-const StatisticLine = ({ text, value }) => {
-  return [text, value];
+const StatisticLine = ({ text, value, key }) => {
+  return (
+    <tr key={key}>
+      <td>{text}</td>
+      <td>{value}</td>
+    </tr>
+  );
 };
 
 const Statistics = (props) => {
@@ -21,27 +26,33 @@ const Statistics = (props) => {
   return (
     <div>
       <h1>statistics</h1>
-
       {positive_res ? (
-        <p>
-          <StatisticLine text="good " value={good} />
-          <br />
-          <StatisticLine text="neutral " value={neutral} />
-          <br />
-          <StatisticLine text="bad " value={bad} />
-          <br />
-          <StatisticLine text="all " value={total} />
-          <br />
-          
-          <StatisticLine text="average " value={average} />
-          <br />
-          <StatisticLine text="positive " value={positive_res} /> %
-        </p>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <StatisticLine text="good" value={good} />
+            <StatisticLine text="neutral" value={neutral} />
+            <StatisticLine text="bad" value={bad} />
+            <StatisticLine text="all" value={total} />
+            <StatisticLine
+              text="average"
+              value={isNaN(average) ? 0 : average}
+            />
+            <StatisticLine
+              text="positive"
+              value={isNaN(positive_res) ? 0 : positive_res + " %"}
+            />
+          </tbody>
+          <tfoot></tfoot>
+        </table>
       ) : (
-        ""
+        <p>No feedback given</p>
       )}
-
-      {isNaN(positive_res) && <p>No feedback given</p>}
     </div>
   );
 };
