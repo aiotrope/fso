@@ -5,19 +5,40 @@ const Title = ({ title }) => {
   return <h1>{title}</h1>;
 };
 
-/* destructuring & returning multiple 
-*values in a single function component
-*/
-const Calc = ({ good, neutral, bad }) => {
-  let to = good + neutral + bad;
-  let ave = (good - bad) / to;
-  let pos = (good / to) * 100;
+const Statistics = (props) => {
+  /* 
+  * destructure props inside the function
+  */
+  let { good, neutral, bad } = props;
 
-  return {
-    total: to,
-    average: isNaN(ave) ? 0 : ave, 
-    positive: isNaN(pos) ? 0 : pos + "%",
-  };
+  let total = good + neutral + bad;
+  let average = (good - bad) / total;
+  let positive_res = (good / total) * 100;
+  return (
+    <div>
+      <h1>statistics</h1>
+
+      {positive_res ? (
+        <p>
+          good {good}
+          <br />
+          neutral {neutral} <br />
+          bad {bad}
+          <br />
+          all {total}
+          <br />
+          average {average}
+          <br />
+          positive {positive_res} %
+        </p>
+      ) : (
+        ""
+      )}
+
+      {isNaN(positive_res) && <p>No feedback given</p>}
+
+    </div>
+  );
 };
 
 const App = () => {
@@ -25,7 +46,6 @@ const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-  const { total, average, positive } = Calc({ good, neutral, bad });
 
   return (
     <div>
@@ -33,16 +53,8 @@ const App = () => {
       <button onClick={() => setGood(good + 1)}>good</button>
       <button onClick={() => setNeutral(neutral + 1)}>neutral</button>
       <button onClick={() => setBad(bad + 1)}>bad</button>
-      <h1>statistics</h1>
-      good {good} <br />
-      neutral {neutral} <br />
-      bad {bad}
-      <br />
-      all {total}
-      <br />
-      average {average}
-      <br />
-      positive {positive}
+
+      <Statistics good={good} neutral={neutral} bad={bad} />
     </div>
   );
 };
