@@ -1,37 +1,32 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const Title = (props) => {
-  const title = props.title;
+// destructuring props
+const Title = ({ title }) => {
   return <h1>{title}</h1>;
 };
 
-const Total = (props) => {
-  return props.good + props.neutral + props.bad;
+/* destructuring & returning multiple 
+*values in a single function component
+*/
+const Calc = ({ good, neutral, bad }) => {
+  let to = good + neutral + bad;
+  let ave = (good - bad) / to;
+  let pos = (good / to) * 100;
+
+  return {
+    total: to,
+    average: isNaN(ave) ? 0 : ave, 
+    positive: isNaN(pos) ? 0 : pos + "%",
+  };
 };
-
-const Average = (props) => {
-  let total = props.good + props.neutral + props.bad;
-  let good = props.good;
-  let bad = props.bad;
-  let calc = good - bad;
-  let average = 0;
-  average = calc / total;
-
-  return(isNaN(average) ? 0 : average)
-};
-
-const Positive = (props) => {
-  let total = props.good + props.neutral + props.bad;
-  let good = props.good;
-  let positive = good / total
-  return(isNaN(positive) ? 0 : positive + "%")
-}
 
 const App = () => {
   const title = "give feedback";
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
+  const { total, average, positive } = Calc({ good, neutral, bad });
+
   return (
     <div>
       <Title title={title} />
@@ -43,11 +38,11 @@ const App = () => {
       neutral {neutral} <br />
       bad {bad}
       <br />
-      all <Total good={good} neutral={neutral} bad={bad} />
+      all {total}
       <br />
-      average <Average good={good} neutral={neutral} bad={bad}/> 
+      average {average}
       <br />
-      positive <Positive good={good} neutral={neutral} bad={bad} />
+      positive {positive}
     </div>
   );
 };
