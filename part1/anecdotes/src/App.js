@@ -11,32 +11,49 @@ const App = () => {
     "Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.",
   ];
 
-  const [selected, setSelected] = useState(0);
-  const [arr, setArr] = useState([]);
+  const countVotes = {};
 
-  const getRandomInt = () => {
-    let num = Math.floor(Math.random() * 7);
-    return num;
+  const [selected, setSelected] = useState(0);
+  const [votes, setVotes] = useState([]);
+ 
+  /* Code based from Math.random() - JavaScript | MDN. (2022, September 13). Retrieved September 26, 2022, 
+  from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random 
+  */
+  const getRandomNumber = () => {
+    let wholeNumber = Math.floor(Math.random() * 7);
+    return wholeNumber;
   };
-  //let ab = [];
-  arr.push(selected);
-  let ab = {...arr}
- console.log(ab)
+
+  const randomAnecdotes = () => {
+    let _randomHandler = () => setSelected(getRandomNumber());
+    return _randomHandler;
+  };
+
+  const insertVote = () => {
+    const _voteHandler = () => setVotes((tempArr) => [...tempArr, selected]);
+    return _voteHandler;
+  };
+
+  /* Code based from https://stackoverflow.com/questions/5667888/counting-the-occurrences-frequency-of-array-elements question
+  * Questioned by: https://stackoverflow.com/q/5667888
+  * Answered by: https://stackoverflow.com/a/5668029
+  */ 
+
+  for (const num of votes) {
+    countVotes[num] = countVotes[num] ? countVotes[num] + 1 : 1;
+  }
+
   return (
     <div>
       {anecdotes[selected]}
       <br />
-      <button
-        onClick={() => {
-          setSelected(getRandomInt());
-          setArr((arr) => [...arr, selected]);
-        }}
-      >
-        next anectode
-      </button>
-      {selected} <br />
+      {countVotes[selected]
+        ? `has ${countVotes[selected]} votes`
+        : "has " + 0 + " votes"}{" "}
       <br />
-      {arr}
+      <button onClick={insertVote()}>vote</button>
+      <button onClick={randomAnecdotes()}>next anectode</button>
+      <br />
     </div>
   );
 };
