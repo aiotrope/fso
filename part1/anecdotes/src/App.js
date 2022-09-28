@@ -84,7 +84,7 @@ const App = () => {
       <div>
         {highestIndex >= 0 ? (
           <>
-            <h1>Anectode with most votes</h1>
+            <h1>Anecdote with most votes</h1>
             <p>
               {anecdotes[highestIndex]}
               <br />
@@ -100,11 +100,11 @@ const App = () => {
 
   return (
     <div>
-      <h1>Anectode of the day</h1>
+      <h1>Anecdote of the day</h1>
       {anecdotes[selected]}
       <Count index={selected} />
       <button onClick={getQuote}>vote</button>
-      <button onClick={randomAnecdotes()}>next anectode</button>
+      <button onClick={randomAnecdotes()}>next anecdote</button>
       <MostRatedVotes />
     </div>
   );
