@@ -18,6 +18,7 @@ const App = () => {
   const [votes, setVotes] = useState([]);
   const [count, setCount] = useState(voteArray);
   const [quote, setQuote] = useState();
+  const [large, setLarge] = useState(0)
 
   const getRandomNumber = () => {
     let wholeNumber = Math.floor(Math.random() * 7);
@@ -31,23 +32,8 @@ const App = () => {
 
   const getQuote = () => {
     setVotes(votes.concat(selected));
-    setQuote(getMostVoted());
   };
 
-  const getMostVoted = () => {
-    const copyCount = [...count];
-    let temp = 0;
-    copyCount.forEach((el) => {
-      if (temp < el) {
-        temp = el;
-      }
-      
-    });
-
-    const rated = copyCount.indexOf(temp)
-    return rated
-  };
-  //console.log(getMostVoted())
   const Count = ({ index }) => {
     const copyVotes = [...votes];
     const copyCount = [...count];
@@ -59,6 +45,40 @@ const App = () => {
     return <p>has {singleVote[index]} votes</p>;
   };
 
+  const MostVoted = ({ num }) => {
+  
+    const q = [1,2,3,4,90,35]
+    const copyCount = [...count];
+
+    const largestInt = () => {
+      let largest = 0;
+      for (let i = 0; i < q.length; i++) {
+        if (q[i] > largest) {
+          largest = q[i];
+          
+          
+        }
+        return largest
+       
+        
+      }
+     
+    };
+    
+    const a = largestInt()
+   
+    let i = copyCount.indexOf(Math.max(copyCount));
+    
+    console.log(i)
+ 
+    return (
+      <div>
+        <h1>The most voted quote</h1>
+        <p>largest int: {num}</p>
+      </div>
+    );
+  };
+
   return (
     <div>
       {anecdotes[selected]} <br />
@@ -67,7 +87,7 @@ const App = () => {
       <br />
       <br />
       <Count index={selected} />
-      {anecdotes[quote]}
+      <MostVoted />
     </div>
   );
 };
