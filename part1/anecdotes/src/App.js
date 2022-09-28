@@ -27,7 +27,7 @@ const App = () => {
     <div>
       {anecdotes[selected]}
       <br />
-      <button onClick={randomAnecdotes()}>next anectode</button>
+      <button onClick={randomAnecdotes()}>next anecdote</button>
     </div>
   );
 };
