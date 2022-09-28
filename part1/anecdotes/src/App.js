@@ -14,10 +14,9 @@ const App = () => {
   const anecdoteLength = anecdotes.length;
   const voteArray = Array(anecdoteLength).fill(0);
   const count = voteArray;
-  
+
   const [selected, setSelected] = useState(0);
   const [votes, setVotes] = useState([]);
-  
 
   const getRandomNumber = () => {
     let wholeNumber = Math.floor(Math.random() * 7);
@@ -41,7 +40,12 @@ const App = () => {
       copyCount[i] += 1;
     }
     const singleVote = copyCount.map((el) => el);
-    return <><br />has {singleVote[index]} votes <br /></>;
+    return (
+      <>
+        <br />
+        has {singleVote[index]} votes <br />
+      </>
+    );
   };
 
   return (
@@ -49,10 +53,7 @@ const App = () => {
       {anecdotes[selected]}
       <Count index={selected} />
       <button onClick={getQuote}>vote</button>
-      <button onClick={randomAnecdotes()}>next anectode</button>
-      <br />
-      <br />
-     
+      <button onClick={randomAnecdotes()}>next anecdote</button>
     </div>
   );
 };
