@@ -13,12 +13,11 @@ const App = () => {
 
   const anecdoteLength = anecdotes.length;
   const voteArray = Array(anecdoteLength).fill(0);
-
+  const count = voteArray;
+  
   const [selected, setSelected] = useState(0);
   const [votes, setVotes] = useState([]);
-  const [count, setCount] = useState(voteArray);
-  const [quote, setQuote] = useState();
-  const [large, setLarge] = useState(0)
+  
 
   const getRandomNumber = () => {
     let wholeNumber = Math.floor(Math.random() * 7);
@@ -42,61 +41,20 @@ const App = () => {
       copyCount[i] += 1;
     }
     const singleVote = copyCount.map((el) => el);
-    return <p>has {singleVote[index]} votes</p>;
-  };
-
-  const MostVoted = ({ num }) => {
-  
-    const q = [1,2,3,4,90,35]
-    const copyCount = [...count];
-
-    const largestInt = () => {
-      let largest = 0;
-      for (let i = 0; i < q.length; i++) {
-        if (q[i] > largest) {
-          largest = q[i];
-          
-          
-        }
-        return largest
-       
-        
-      }
-     
-    };
-    
-    const a = largestInt()
-   
-    let i = copyCount.indexOf(Math.max(copyCount));
-    
-    console.log(i)
- 
-    return (
-      <div>
-        <h1>The most voted quote</h1>
-        <p>largest int: {num}</p>
-      </div>
-    );
+    return <><br />has {singleVote[index]} votes <br /></>;
   };
 
   return (
     <div>
-      {anecdotes[selected]} <br />
+      {anecdotes[selected]}
+      <Count index={selected} />
       <button onClick={getQuote}>vote</button>
       <button onClick={randomAnecdotes()}>next anectode</button>
       <br />
       <br />
-      <Count index={selected} />
-      <MostVoted />
+     
     </div>
   );
 };
 
 export default App;
-
-/* const getCount = (array, value) => {
-  let count = 0;
-  votes.forEach((el) => el === value && count++);
-  return count;
-};
- */
