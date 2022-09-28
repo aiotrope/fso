@@ -12,7 +12,8 @@
 - [Solution for Exercise 1.3](https://github.com/aiotrope/fso/tree/part1/courseinfoWithObjects/part1/courseinfo)
 - [Solution for Exercise 1.4](https://github.com/aiotrope/fso/tree/part1/courseinfoWithArray/part1/courseinfo)
 
-##### Exercise instruction link
+###### Exercise instruction link
+
 - [1.1-1.2](https://fullstackopen.com/en/part1/introduction_to_react#exercises-1-1-1-2)
 - [1.3-1.5](https://fullstackopen.com/en/part1/java_script#exercises-1-3-1-5)
 
@@ -30,5 +31,15 @@
 - [Solution for Exercise 1.9](https://github.com/aiotrope/fso/tree/part1/1.9/part1/unicafe)
 - [Solution for Exercise 1.10](https://github.com/aiotrope/fso/tree/part1/1.10/part1/unicafe)
 
-##### Exercise instruction link
+### 1.12-1.14: anecdotes
+
+#### [Solution for Exercise 1.12-1.14: anecdotes(final)](https://github.com/aiotrope/fso/tree/main/part1/anecdotes)
+
+#### Related branches
+
+- [Solution for Exercise 1.12](https://github.com/aiotrope/fso/tree/part1/1.12/part1/anecdotes)
+- [Solution for Exercise 1.13](https://github.com/aiotrope/fso/tree/part1/1.13/part1/anecdotes)
+
+###### Exercise instruction link
+
 - [1.6-1.14](https://fullstackopen.com/en/part1/a_more_complex_state_debugging_react_apps#exercises-1-6-1-14)
