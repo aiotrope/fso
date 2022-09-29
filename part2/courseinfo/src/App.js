@@ -2,6 +2,8 @@ import Header from "./Course/Header";
 import Part1 from "./Course/Content/Part1";
 import Part2 from "./Course/Content/Part2";
 import Part3 from "./Course/Content/Part3";
+import Part4 from "./Course/Content/Part4";
+import Total from "./Course/Total";
 
 const Course = ({ course }) => {
   return (
@@ -21,6 +23,19 @@ const Course = ({ course }) => {
         id={course.parts[2].id}
         name={course.parts[2].name}
         exercises={course.parts[2].exercises}
+      />
+      <Part4
+        id={course.parts[3].id}
+        name={course.parts[3].name}
+        exercises={course.parts[3].exercises}
+      />
+      <Total
+        score={
+          course.parts[0].exercises +
+          course.parts[1].exercises +
+          course.parts[2].exercises +
+          course.parts[3].exercises
+        }
       />
     </div>
   );
@@ -45,6 +60,11 @@ const App = () => {
         name: "State of a component",
         exercises: 14,
         id: 3,
+      },
+      {
+        name: "Redux",
+        exercises: 11,
+        id: 4,
       },
     ],
   };
