@@ -30,12 +30,10 @@ const Course = ({ course }) => {
         exercises={course.parts[3].exercises}
       />
       <Total
-        score={
-          course.parts[0].exercises +
-          course.parts[1].exercises +
-          course.parts[2].exercises +
-          course.parts[3].exercises
-        }
+        element1={course.parts[0].exercises}
+        element2={course.parts[1].exercises}
+        element3={course.parts[2].exercises}
+        element4={course.parts[3].exercises}
       />
     </div>
   );

@@ -10,6 +10,8 @@
 
 - [Solution for Exercise 2.1](https://github.com/aiotrope/fso/tree/part2/2.1/part2/courseinfo)
 - [Solution for Exercise 2.2](https://github.com/aiotrope/fso/tree/part2/2.2/part2/courseinfo)
+- [Solution for Exercise 2.3](https://github.com/aiotrope/fso/tree/part2/2.3/part2/courseinfo)
+- [Solution for Exercise 2.4](https://github.com/aiotrope/fso/tree/part2/2.4/part2/courseinfo)
 
 
 ###### Exercise instruction link
