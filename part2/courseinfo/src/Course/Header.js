@@ -1,5 +1,5 @@
 const Header = ({ name, id }) => {
-  return <h1 key={id}>{name}</h1>;
+  return <h2 key={id}>{name}</h2>;
 };
 
 export default Header;
