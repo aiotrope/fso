@@ -3,20 +3,22 @@ import { useState } from "react";
 const App = () => {
   const [persons, setPersons] = useState([{ name: "Arto Hellas" }]);
   const [newName, setNewName] = useState("");
-
+  
+  
   const onSubmit = (event) => {
+    // prevent page reload that can cause the loss of data upon submission
     event.preventDefault();
-    //reset form
+    // insert data on the persons array with newName as data entry
+    setPersons((tempPersons) => [...tempPersons, newName]);
+    // reset form after submission
     event.target.reset();
   };
 
-  const newEntry = () => {
-    setPersons((tempArr) => [...tempArr, newName]);
-  };
-
-  const handleChange = (event) => {
-    event.persist();
-    setNewName((newName) => ({ ...newName, name: event.target.value }));
+  /* function that handles the changes of name input 
+  * targeting the changes of name input value based on new entry as object
+  */
+  const onChange = (event) => {
+    setNewName((state) => ({ ...state, name: event.target.value }));
   };
   console.log(newName);
   return (
@@ -25,12 +27,10 @@ const App = () => {
       <form onSubmit={onSubmit}>
         <div>
           name:{" "}
-          <input onChange={handleChange} value={persons.name} type="text" />
+          <input onChange={onChange} value={persons.name} type="text" />
         </div>
         <div>
-          <button type="submit" onClick={newEntry}>
-            add
-          </button>
+          <button type="submit">add</button>
         </div>
       </form>
       <h2>Numbers</h2>
