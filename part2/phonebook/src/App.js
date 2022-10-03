@@ -1,45 +1,33 @@
+import Persons from "./Components/Persons";
+import PersonForm from "./Components/PersonForm";
 import { useState } from "react";
 
 const App = () => {
-  const [persons, setPersons] = useState([{ name: "Arto Hellas" }]);
-  const [newName, setNewName] = useState("");
-
-  const onSubmit = (event) => {
-    event.preventDefault();
-
-    // get only the values of property name in array of objects
-    const copy = [...persons];
-    const nameArr = copy.map((el) => el.name);
-    // check for match entry
-    const haveMatch = nameArr.includes(newName);
-    const result = haveMatch
-      ? alert(`${newName} is already added to phonebook`) // alert for match
-      : setPersons((tempPersons) => [...tempPersons, { name: newName }]); // add only if there is no match
-
-    // reset form
-    setNewName("");
-
-    return result;
+  const initialPersonsState = {
+    name: "Arto Hellas",
+    phonenumber: "040-123456",
+  };
+  // initial state of array persons
+  const [persons, setPersons] = useState([initialPersonsState]);
+  // function pass as a props to PersonForm
+  const updatePersonsCollection = (newEntry) => {
+    setPersons([...persons, newEntry]);
   };
 
-  const onChange = (event) => {
-    setNewName(() => event.target.value);
-  };
-
+  //console.log(persons);
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={onSubmit}>
-        <div>
-          name: <input onChange={onChange} value={newName} type="text" />
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-      <h2>Numbers</h2>
+      <h3>Add a new</h3>
+      <PersonForm updatePersonsCollection={updatePersonsCollection} />
+      <h3>Numbers</h3>
+
       {persons.map((person, index) => {
-        return <div key={index}>{person.name}</div>;
+        return (
+          <div key={index}>
+            <Persons name={person.name} phonenumber={person.phonenumber} />
+          </div>
+        );
       })}
     </div>
   );
