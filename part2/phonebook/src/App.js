@@ -1,26 +1,31 @@
 import { Persons } from "./Components/Persons";
 import { PersonForm } from "./Components/PersonForm";
 import { Filter } from "./Components/Filter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const App = () => {
-  const initialPersonsState = [
-    { name: "Arto Hellas", number: "040-123456", id: 1 },
-    { name: "Ada Lovelace", number: "39-44-5323523", id: 2 },
-    { name: "Dan Abramov", number: "12-43-234345", id: 3 },
-    { name: "Mary Poppendieck", number: "39-23-6423122", id: 4 },
-  ];
-
-  // initial state of array persons
-  const [persons, setPersons] = useState(initialPersonsState);
+  
+  const [persons, setPersons] = useState([]);
   // function pass as a props to PersonForm
   const updatePersonsCollection = (newEntry) => {
     setPersons([...persons, newEntry]);
   };
-
   const [search, setSearch] = useState("");
 
-  //console.log(persons);
+/* get the initial persons data from dummy json data
+*/
+  const urlDB = "http://127.0.0.1:3001/persons";
+  const promise = axios.get(urlDB);
+ 
+  useEffect(() => {
+    promise.then((res) => {
+      const init = res.data;
+      console.log(init);
+      setPersons(init);
+    });
+  }, []);
+
   return (
     <div>
       <h2>Phonebook</h2>
