@@ -15,7 +15,7 @@
 
 ### 2.6-2.10 phonebook
 
-#### [Solution for Exercise 2.6-2.10: phonebook(final)](https://github.com/aiotrope/fso/tree/main/part2/phonebook)
+#### [Solution for Exercise 2.6-2.10: phonebook(final)](https://github.com/aiotrope/fso/tree/part2/2.10/part2/phonebook)
 
 #### Related branches
 
@@ -23,7 +23,17 @@
 - [Solution for Exercise 2.7](https://github.com/aiotrope/fso/tree/part2/2.7/part2/phonebook)
 - [Solution for Exercise 2.8](https://github.com/aiotrope/fso/tree/part2/2.8/part2/phonebook)
 - [Solution for Exercise 2.9](https://github.com/aiotrope/fso/tree/part2/2.9/part2/phonebook)
+- [Solution for Exercise 2.10](https://github.com/aiotrope/fso/tree/part2/2.10/part2/phonebook)
 
+### 2.11-2.14 phonebook & Data for countries
+
+#### [Solution for Exercise 2.14: dataForCountries(final)](https://github.com/aiotrope/fso/tree/main/part2/dataForCountries)
+
+##### Related branches
+
+- [Solution for Exercise 2.11](https://github.com/aiotrope/fso/tree/part2/2.11/part2/phonebook)
+- [Solution for Exercise 2.12](https://github.com/aiotrope/fso/tree/part2/2.12/part2/dataForCountries)
+- [Solution for Exercise 2.13](https://github.com/aiotrope/fso/tree/part2/2.13/part2/dataForCounties)
 
 ###### Exercise instruction link
 
