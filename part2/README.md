@@ -27,7 +27,7 @@
 
 ### 2.11-2.14 phonebook & Data for countries
 
-#### [Solution for Exercise 2.14: dataForCountries(final)](https://github.com/aiotrope/fso/tree/main/part2/dataForCountries)
+#### [Solution for Exercise 2.12.14: dataForCountries(final)](https://github.com/aiotrope/fso/tree/main/part2/dataForCountries)
 
 ##### Related branches
 
