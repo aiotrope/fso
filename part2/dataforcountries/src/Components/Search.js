@@ -6,9 +6,11 @@ export const SearchForm = ({ setSearch }) => {
   };
 
   return (
-    <form noValidate>
-      <label>find countries</label>
-      <input type="text" name="countries" onChange={onChange} />
-    </form>
+    <section>
+      <form noValidate>
+        <label>find countries</label>
+        <input type="text" name="countries" onChange={onChange} />
+      </form>
+    </section>
   );
 };

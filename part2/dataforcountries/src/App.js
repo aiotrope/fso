@@ -6,7 +6,7 @@ const App = () => {
   const [search, setSearch] = useState("");
 
   return (
-    <div>
+    <main>
       {/* component for the form
        */}
       <SearchForm setSearch={setSearch} />
@@ -14,7 +14,7 @@ const App = () => {
       {/* component for the country info
        */}
       <Countries search={search} />
-    </div>
+    </main>
   );
 };
 

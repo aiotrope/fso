@@ -1,5 +1,5 @@
-export const SingleInfo = ({ countryInfo, search }) => {
-  const data = countryInfo
+export const SingleInfo = ({ countriesInfo, search }) => {
+  const data = countriesInfo
     .filter((c) => c.name.official.toUpperCase().includes(search.toUpperCase()))
     .map((country, idx) => {
       // access the langauge object
@@ -13,7 +13,7 @@ export const SingleInfo = ({ countryInfo, search }) => {
       //console.log(country);
 
       return (
-        <div key={idx}>
+        <section key={idx}>
           <h2>{country.name.common}</h2>
           capital {country.capital}
           <br />
@@ -33,7 +33,7 @@ export const SingleInfo = ({ countryInfo, search }) => {
               alt={`flag of ${country.name.official}`}
             />
           </div>
-        </div>
+        </section>
       );
     });
   return data;

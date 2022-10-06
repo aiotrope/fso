@@ -4,7 +4,8 @@ import { SingleInfo } from "./SingleInfo";
 import { FewerInfo } from "./FewerInfo";
 
 export const Countries = ({ search }) => {
-  const [countryInfo, setCountryInfo] = useState([]);
+  // countriesInfo huge obj of all countries data
+  const [countriesInfo, setCountriesInfo] = useState([]);
   const url = "https://restcountries.com/v3.1/all";
   //const promise = axios.get(url);
 
@@ -12,11 +13,11 @@ export const Countries = ({ search }) => {
     axios.get(url).then((response) => {
       const res = response.data;
       const dataInfo = res.map((el) => el);
-      setCountryInfo(dataInfo);
+      setCountriesInfo(dataInfo);
     });
-  }, [countryInfo]);
+  }, []);
 
-  const filter = countryInfo
+  const filter = countriesInfo
     .filter((country, i) =>
       country.name.official.toUpperCase().includes(search.toUpperCase())
     )
@@ -25,10 +26,10 @@ export const Countries = ({ search }) => {
     });
 
   // pass props to other components
-  const single = <SingleInfo countryInfo={countryInfo} search={search} />;
-  const few = <FewerInfo countryInfo={countryInfo} search={search} />;
+  const single = <SingleInfo countriesInfo={countriesInfo} search={search} />;
+  const few = <FewerInfo countriesInfo={countriesInfo} search={search} />;
   return (
-    <div>
+    <section>
       {/* switch and IIFE to render components based on
        * length of array being queried
        */}
@@ -52,6 +53,6 @@ export const Countries = ({ search }) => {
             return <>To many matches, specify another filter</>;
         }
       })()}
-    </div>
+    </section>
   );
 };
