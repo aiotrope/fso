@@ -16,7 +16,7 @@ export const Countries = ({ search }) => {
       setCountriesInfo(dataInfo);
     });
   }, []);
-
+  // main filter in the form
   const filter = countriesInfo
     .filter((country, i) =>
       country.name.official.toUpperCase().includes(search.toUpperCase())
@@ -28,6 +28,7 @@ export const Countries = ({ search }) => {
   // pass props to other components
   const single = <SingleInfo countriesInfo={countriesInfo} search={search} />;
   const few = <FewerInfo countriesInfo={countriesInfo} search={search} />;
+  //console.log(countriesInfo)
   return (
     <section>
       {/* switch and IIFE to render components based on
