@@ -16,7 +16,7 @@ const App = () => {
         console.log(response.data)
         setPersons([...persons, response.data]);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => console.log(err));
   };
   const [search, setSearch] = useState("");
 
