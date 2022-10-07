@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const App = () => {
-  
   const [persons, setPersons] = useState([]);
   // function pass as a props to PersonForm
   const updatePersonsCollection = (newEntry) => {
@@ -13,11 +12,11 @@ const App = () => {
   };
   const [search, setSearch] = useState("");
 
-/* get the initial persons data from dummy json data
-*/
+  /* get the initial persons data from dummy json data
+   */
   const urlDB = "http://127.0.0.1:3001/persons";
   const promise = axios.get(urlDB);
- 
+
   useEffect(() => {
     promise.then((res) => {
       const init = res.data;

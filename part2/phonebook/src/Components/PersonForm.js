@@ -15,10 +15,10 @@ export const PersonForm = (props) => {
   const onSubmit = (event) => {
     if (event) event.preventDefault();
     /* Validation rules
-    *check for match entry compare to name fron newEntry
+     *check for match entry compare to name fron newEntry
      */
     const namesArr = persons.map((e) => e.name);
-   
+
     const haveMatch = namesArr.includes(name);
 
     const regex2 = /^[\+]?\d\d\d[-\s\.]?\d\d\d\d\d\d$/gm; // regex for testing phonenumber e.g: 123-123456 optional + @ start
