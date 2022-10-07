@@ -50,7 +50,19 @@ Maintained by: [Arnel Imperial](https://github.com/aiotrope)
 
 - [Solution for Exercise 2.11](https://github.com/aiotrope/fso/tree/part2/2.11/part2/phonebook)
 - [Solution for Exercise 2.12](https://github.com/aiotrope/fso/tree/part2/2.12/part2/dataforcountries)
-- [Solution for Exercise 2.13](https://github.com/aiotrope/fso/tree/part2/2.13/part2/dataforcounties)
+- [Solution for Exercise 2.13](https://github.com/aiotrope/fso/tree/part2/2.13/part2/dataforcountries)
+- [Solution for Exercise 2.14](https://github.com/aiotrope/fso/tree/part2/2.14/part2/dataforcountries)
+
+#### 2.15-2.18 phonebook
+
+##### [Solution for Exercise 2.15.18: phonebook(final)](https://github.com/aiotrope/fso/tree/part2/2.18/part2/phonebook) *
+
+###### Related branches
+
+- [Solution for Exercise 2.15](https://github.com/aiotrope/fso/tree/part2/2.15/part2/phonebook)
+- [Solution for Exercise 2.16](https://github.com/aiotrope/fso/tree/part2/2.16/part2/phonebook)
+- [Solution for Exercise 2.17](https://github.com/aiotrope/fso/tree/part2/2.17/part2/phonebook)
+- [Solution for Exercise 2.18](https://github.com/aiotrope/fso/tree/part2/2.18/part2/phonebook)
 
 ## Part1: Introduction to React
 
