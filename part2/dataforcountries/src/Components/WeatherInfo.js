@@ -10,8 +10,8 @@ export const WeatherInfo = ({ countryCapital }) => {
 
   useEffect(() => {
     axios.get(url).then((response) => {
-      let tempData = response.data.main; 
-      let windData = response.data.wind; 
+      let tempData = response.data.main;
+      let windData = response.data.wind;
       let iconData = response.data.weather;
       console.log(response);
       setTemperature(tempData);
@@ -39,8 +39,6 @@ export const WeatherInfo = ({ countryCapital }) => {
         <br />
         wind {wind.speed} m/s
       </div>
-
-      
     </section>
   );
 };
