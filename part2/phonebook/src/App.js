@@ -2,29 +2,37 @@ import { Persons } from "./Components/Persons";
 import { PersonForm } from "./Components/PersonForm";
 import { Filter } from "./Components/Filter";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import personsService from "./Components/services/persons";
 
 const App = () => {
   const [persons, setPersons] = useState([]);
   // function pass as a props to PersonForm
+  // as callback
   const updatePersonsCollection = (newEntry) => {
-    setPersons([...persons, newEntry]);
+    // call post request from service
+    personsService
+      .create(newEntry)
+      .then((response) => {
+        console.log(response.data)
+        setPersons([...persons, response.data]);
+      })
+      .catch((err) => console.log(err.message));
   };
   const [search, setSearch] = useState("");
 
   /* get the initial persons data from dummy json data
    */
-  const urlDB = "http://127.0.0.1:3001/persons";
-  const promise = axios.get(urlDB);
 
   useEffect(() => {
-    promise.then((res) => {
+    // call get request from service
+    personsService.getAll().then((res) => {
       const init = res.data;
-      console.log(init);
+      //console.log(init);
       setPersons(init);
     });
   }, []);
 
+  console.log("Added persons: ", persons)
   return (
     <div>
       <h2>Phonebook</h2>
