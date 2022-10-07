@@ -16,19 +16,16 @@ export const Countries = ({ search }) => {
       setCountriesInfo(dataInfo);
     });
   }, []);
+
   // main filter in the form
-  const filter = countriesInfo
-    .filter((country, i) =>
-      country.name.official.toUpperCase().includes(search.toUpperCase())
-    )
-    .map((el, index) => {
-      return <div key={index}>{el.name.common}</div>;
-    });
+  const filter = countriesInfo.filter((country, i) =>
+    country.name.official.toUpperCase().includes(search.toUpperCase())
+  );
 
   // pass props to other components
   const single = <SingleInfo countriesInfo={countriesInfo} search={search} />;
   const few = <FewerInfo countriesInfo={countriesInfo} search={search} />;
-  //console.log(countriesInfo)
+  //console.log(filter.length);
   return (
     <section>
       {/* switch and IIFE to render components based on
