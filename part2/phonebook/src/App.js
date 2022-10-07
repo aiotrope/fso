@@ -13,7 +13,7 @@ const App = () => {
     personsService
       .create(newEntry)
       .then((response) => {
-        console.log(response.data)
+        console.log(response.data);
         setPersons([...persons, response.data]);
       })
       .catch((err) => console.log(err));
@@ -32,9 +32,9 @@ const App = () => {
     });
   }, []);
 
-  console.log("Added persons: ", persons)
+  //console.log("Added persons: ", persons)
   return (
-    <div>
+    <main>
       <h2>Phonebook</h2>
       {/* pass props as variable to child component
        * for access from base component App.js
@@ -49,8 +49,13 @@ const App = () => {
       <h3>Numbers</h3>
       {/* access props persons and search
        */}
-      <Persons persons={persons} search={search} />
-    </div>
+      <Persons
+        persons={persons}
+        search={search}
+        setPersons={setPersons}
+        updatePersonsCollection={updatePersonsCollection}
+      />
+    </main>
   );
 };
 

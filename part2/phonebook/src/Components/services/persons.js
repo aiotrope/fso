@@ -8,4 +8,8 @@ const create = (personObject) => {
   return common.post("/persons", personObject);
 };
 
-export default { getAll, create };
+const omit = (id) => {
+  return common.delete(`/persons/${id}`);
+}
+
+export default { getAll, create, omit };
