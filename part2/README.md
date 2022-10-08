@@ -13,6 +13,9 @@
 - [Solution for Exercise 2.3](https://github.com/aiotrope/fso/tree/part2/2.3/part2/courseinfo)
 - [Solution for Exercise 2.4](https://github.com/aiotrope/fso/tree/part2/2.4/part2/courseinfo)
 
+###### Exercise instruction link
+- [2.1-2.5](https://fullstackopen.com/en/part2/rendering_a_collection_modules#exercises-2-1-2-5)
+
 ### 2.6-2.10 phonebook
 
 #### [Solution for Exercise 2.6-2.10: phonebook(final)](https://github.com/aiotrope/fso/tree/part2/2.10/part2/phonebook)
@@ -25,6 +28,9 @@
 - [Solution for Exercise 2.9](https://github.com/aiotrope/fso/tree/part2/2.9/part2/phonebook)
 - [Solution for Exercise 2.10](https://github.com/aiotrope/fso/tree/part2/2.10/part2/phonebook)
 
+###### Exercise instruction link
+- [2.6-2-10](https://fullstackopen.com/en/part2/forms#exercises-2-6-2-10)
+
 ### 2.11-2.14 phonebook & dataforcountries
 
 #### [Solution for Exercise 2.12.14: dataforcountries(final)](https://github.com/aiotrope/fso/tree/main/part2/dataforcountries) *
@@ -36,9 +42,12 @@
 - [Solution for Exercise 2.13](https://github.com/aiotrope/fso/tree/part2/2.13/part2/dataforcountries) *
 - [Solution for Exercise 2.14](https://github.com/aiotrope/fso/tree/part2/2.14/part2/dataforcountries) *
 
+###### Exercise instruction link
+- [2.11-2.14](https://fullstackopen.com/en/part2/getting_data_from_server#exercises-2-11-2-14)
+
 ### 2.15-2.18 phonebook
 
-#### [Solution for Exercise 2.15.18: phonebook(final)](https://github.com/aiotrope/fso/tree/part2/2.18/part2/phonebook) *
+#### [Solution for Exercise 2.15-2.18: phonebook(final)](https://github.com/aiotrope/fso/tree/part2/2.18/part2/phonebook) *
 
 ##### Related branches
 
@@ -48,5 +57,16 @@
 - [Solution for Exercise 2.18](https://github.com/aiotrope/fso/tree/part2/2.18/part2/phonebook)
 
 ###### Exercise instruction link
+-[2.15-2.18](https://fullstackopen.com/en/part2/altering_data_in_server#exercises-2-15-2-18)
 
-- [2.1-2.5](https://fullstackopen.com/en/part2/rendering_a_collection_modules#exercises-2-1-2-5)
+### 2.19-2.20 phonebook
+
+#### [Solution for Exercise 2.19-2.20: phonebook(final)](https://github.com/aiotrope/fso/tree/part2/2.20/part2/phonebook)
+
+##### Related branches
+
+- [Solution for Exercise 2.15](https://github.com/aiotrope/fso/tree/part2/2.19/part2/phonebook)
+- [Solution for Exercise 2.16](https://github.com/aiotrope/fso/tree/part2/2.20/part2/phonebook)
+
+###### Exercise instruction link
+- [2.19-2.20](https://fullstackopen.com/en/part2/adding_styles_to_react_app#exercises-2-19-2-20)
