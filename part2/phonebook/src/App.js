@@ -18,11 +18,9 @@ const Filter = ({ search, setSearch }) => {
   );
 };
 
-const DeleteButton = ({ id, persons, setPersons, targetName }) => {
-  const [count, setCount] = useState(0);
+const DeleteButton = ({ id, setPersons, targetName }) => {
   const [val, setVal] = useState(""); // for triggering update of state only
 
-  const person = persons.find((n) => n.id === id);
   // for triggering update of state only
   const previousValue = useRef("");
 
@@ -32,7 +30,7 @@ const DeleteButton = ({ id, persons, setPersons, targetName }) => {
       .getAll()
       .then((res) => {
         const init = res.data;
-        console.log(init);
+        //console.log(init);
         setPersons(init);
         previousValue.current = val;
       })
@@ -135,7 +133,23 @@ const PersonForm = ({
     if (newName.length === 0) {
       alert("You forgot to enter your name!");
     } else if (haveMatch) {
-      alert(`${newName} is already added to phonebook`);
+      window.confirm(
+        `${newName} is already added to phonebook, replace the old number with a new one?`
+      );
+      const targetId1 = persons
+        .filter((p) => p.name === newName)
+        .map((p) => p.id);
+      const targetId = targetId1.toString();
+      //const personID = persons.map((p) => p.id === targetId);
+      const updatedEntry = { name: newName, number: newNumber, id: targetId };
+      // put request
+      personsService
+        .update(targetId, updatedEntry)
+        .then((returnedPerson) => {
+          console.log(returnedPerson.data);
+          setPersons(persons.concat(returnedPerson.data));
+        })
+        .catch((err) => console.log(err.message));
     } else if (newNumber.length === 0) {
       alert("You forgot to enter your phone number!");
     } else if (!regRes1 && !regRes2) {
@@ -155,7 +169,7 @@ const PersonForm = ({
     setNewName("");
     setNewNumber("");
   };
-  console.log(persons);
+
   return (
     <>
       <form onSubmit={onSubmit} noValidate>
@@ -206,6 +220,7 @@ const App = () => {
         setNewNumber={setNewNumber}
         persons={persons}
         setPersons={setPersons}
+        search={search}
       />
       <h3>Numbers</h3>
 
