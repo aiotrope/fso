@@ -66,7 +66,7 @@ Maintained by: [Arnel Imperial](https://github.com/aiotrope)
 
 #### 2.19-2.20 phonebook
 
-##### [Solution for Exercise 2.19-2.20: phonebook(final)](https://github.com/aiotrope/fso/tree/part2/2.20/part2/phonebook)
+##### [Solution for Exercise 2.19-2.20: phonebook(final)](https://github.com/aiotrope/fso/tree/main/part2/phonebook)
 
 ###### Related branches
 
