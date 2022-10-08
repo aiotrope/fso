@@ -2,9 +2,9 @@ import { useState } from "react";
 //import personsService from "./services/persons";
 
 export const PersonForm = (props) => {
-  // props that accept changes and pass to App.js
+  
   const { updatePersonsCollection } = props;
-  // initial state of object eventually be inserted to array as newEntry in App.js
+
   const initialEntryState = { name: "", number: "" };
   const [newEntry, setNewEntry] = useState(initialEntryState);
   // destructure and combine the newName and newNumber variable before as one newEntry
