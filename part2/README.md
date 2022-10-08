@@ -57,7 +57,7 @@
 - [Solution for Exercise 2.18](https://github.com/aiotrope/fso/tree/part2/2.18/part2/phonebook)
 
 ###### Exercise instruction link
--[2.15-2.18](https://fullstackopen.com/en/part2/altering_data_in_server#exercises-2-15-2-18)
+- [2.15-2.18](https://fullstackopen.com/en/part2/altering_data_in_server#exercises-2-15-2-18)
 
 ### 2.19-2.20 phonebook
 
