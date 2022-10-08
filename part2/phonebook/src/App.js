@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import personsService from "./Components/services/persons"; // services
+import "./styles.css";
 
 const Filter = ({ search, setSearch }) => {
   const onChange = (event) => {
@@ -7,7 +9,7 @@ const Filter = ({ search, setSearch }) => {
   };
 
   return (
-    <form noValidate>
+    <form>
       <div>
         filter shown with:
         <input type="text" name="filter" value={search} onChange={onChange} />
@@ -16,7 +18,67 @@ const Filter = ({ search, setSearch }) => {
   );
 };
 
-const Persons = ({ persons, search }) => {
+const DeleteButton = ({ id, persons, setPersons, targetName }) => {
+  const [count, setCount] = useState(0);
+  const [val, setVal] = useState(""); // for triggering update of state only
+
+  const person = persons.find((n) => n.id === id);
+  // for triggering update of state only
+  const previousValue = useRef("");
+
+  useEffect(() => {
+    // get all name/number entries
+    personsService
+      .getAll()
+      .then((res) => {
+        const init = res.data;
+        console.log(init);
+        setPersons(init);
+        previousValue.current = val;
+      })
+      .catch((e) => console.log(e.message));
+  }, [val]);
+
+  const onClick = (event) => {
+    const target = event.target.value;
+    //console.log(target);
+
+    const confirm = window.confirm(`Delete ${targetName}?`);
+    console.log(confirm);
+    if (confirm)
+      personsService
+        .omit(target)
+        .then((returedPerson) => {
+          //setCount((c) => c + 1);
+          setVal(returedPerson.data);
+          console.log(returedPerson.data);
+        })
+        .catch((e) => {
+          console.log(e.message);
+        });
+  };
+
+  return (
+    <>
+      <button value={id} onClick={onClick} className="button">
+        delete
+      </button>
+    </>
+  );
+};
+
+const Persons = ({ persons, search, setPersons }) => {
+  useEffect(() => {
+    // get all name/number entries
+    personsService
+      .getAll()
+      .then((res) => {
+        const init = res.data;
+        console.log(init);
+        setPersons(init);
+      })
+      .catch((e) => console.log(e.message));
+  }, []);
   return (
     <>
       {persons
@@ -26,7 +88,13 @@ const Persons = ({ persons, search }) => {
         .map((el, index) => {
           return (
             <div key={index}>
-              {el.name} {el.number}
+              {el.name} {el.number}{" "}
+              <DeleteButton
+                id={el.id}
+                targetName={el.name}
+                persons={persons}
+                setPersons={setPersons}
+              />
             </div>
           );
         })}
@@ -43,11 +111,13 @@ const PersonForm = ({
   setNewNumber,
 }) => {
   const onChangeName = (event) => {
+    event.persist();
     const target = event.target.value;
     setNewName(target);
   };
 
   const onChangeNumber = (event) => {
+    event.persist();
     const target = event.target.value;
     setNewNumber(target);
   };
@@ -71,8 +141,15 @@ const PersonForm = ({
     } else if (!regRes1 && !regRes2) {
       alert(`${newNumber} is not valid phone number!`);
     } else {
-      const newNameEntry = { name: newName, number: newNumber };
-      setPersons(persons.concat(newNameEntry));
+      // post new entries on the backend
+      const newEntry = { name: newName, number: newNumber };
+      personsService
+        .create(newEntry)
+        .then((response) => {
+          //console.log(response.data);
+          setPersons(persons.concat(newEntry));
+        })
+        .catch((err) => console.log(err));
     }
 
     setNewName("");
@@ -110,12 +187,7 @@ const PersonForm = ({
 };
 
 const App = () => {
-  const [persons, setPersons] = useState([
-    { name: "Arto Hellas", number: "040-123456", id: 1 },
-    { name: "Ada Lovelace", number: "39-44-5323523", id: 2 },
-    { name: "Dan Abramov", number: "12-43-234345", id: 3 },
-    { name: "Mary Poppendieck", number: "39-23-6423122", id: 4 },
-  ]);
+  const [persons, setPersons] = useState([]);
   const [search, setSearch] = useState("");
   const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
@@ -124,7 +196,7 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
 
-      <Filter personsData={persons} search={search} setSearch={setSearch} />
+      <Filter search={search} setSearch={setSearch} />
 
       <h3>Add a new</h3>
       <PersonForm
@@ -137,7 +209,7 @@ const App = () => {
       />
       <h3>Numbers</h3>
 
-      <Persons persons={persons} search={search} />
+      <Persons persons={persons} search={search} setPersons={setPersons} />
     </div>
   );
 };
