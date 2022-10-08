@@ -53,6 +53,7 @@ const DeleteButton = ({ id, setPersons, targetName }) => {
         })
         .catch((e) => {
           console.log(e.message);
+          alert(`Problem deleting resource: ${e.message}`);
         });
   };
 
@@ -107,6 +108,8 @@ const PersonForm = ({
   setNewName,
   newNumber,
   setNewNumber,
+  setSuccessMsg,
+  setErrorMsg,
 }) => {
   const onChangeName = (event) => {
     event.persist();
@@ -124,7 +127,6 @@ const PersonForm = ({
     if (event) event.preventDefault();
     const namesArr = persons.map((e) => e.name);
     const haveMatch = namesArr.includes(newName);
-
     const regex2 = /^[\+]?\d\d\d[-\s\.]?\d\d\d\d\d\d$/gm;
     const regex1 = /^[\+]?[0-9]{2,3}[-\s\.]?[0-9]{2,6}[-\s\.]?[0-9]{6,7}$/im;
     const regRes1 = regex1.test(newNumber);
@@ -133,9 +135,6 @@ const PersonForm = ({
     if (newName.length === 0) {
       alert("You forgot to enter your name!");
     } else if (haveMatch) {
-      window.confirm(
-        `${newName} is already added to phonebook, replace the old number with a new one?`
-      );
       const targetId1 = persons
         .filter((p) => p.name === newName)
         .map((p) => p.id);
@@ -145,11 +144,35 @@ const PersonForm = ({
       // put request
       personsService
         .update(targetId, updatedEntry)
-        .then((returnedPerson) => {
-          console.log(returnedPerson.data);
-          setPersons(persons.concat(returnedPerson.data));
+        .then((response) => {
+          //console.log(returnedPerson);
+          setPersons(persons.concat(response.data));
+          console.log(response.data);
+          // handle if resource not yet deleted
+          if (response.status === 200) {
+            window.confirm(
+              `${newName} is already added to phonebook, replace the old number with a new one?`
+            );
+
+            setSuccessMsg(`${newName}'s updated phone number: ${newNumber}`);
+            setTimeout(() => {
+              setSuccessMsg(null);
+            }, 5000);
+          }
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => {
+          // handle if resource already deleted
+          if (err.response.status === 404) {
+            setErrorMsg(
+              `Information of ${newName} has already been removed from server`
+            );
+            setTimeout(() => {
+              setErrorMsg(null);
+            }, 5000);
+          }
+          console.log(err);
+          setPersons(persons.filter((p) => p.id !== targetId));
+        });
     } else if (newNumber.length === 0) {
       alert("You forgot to enter your phone number!");
     } else if (!regRes1 && !regRes2) {
@@ -157,13 +180,23 @@ const PersonForm = ({
     } else {
       // post new entries on the backend
       const newEntry = { name: newName, number: newNumber };
+
       personsService
         .create(newEntry)
         .then((response) => {
-          //console.log(response.data);
+          console.log(response.status);
           setPersons(persons.concat(newEntry));
+          if (response.status === 201) {
+            setSuccessMsg(`Added ${newName}`);
+            setTimeout(() => {
+              setSuccessMsg(null);
+            }, 5000);
+          }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          alert(`Problem creating resource ${err.message}`);
+          console.log(err.message);
+        });
     }
 
     setNewName("");
@@ -205,10 +238,15 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   return (
     <div>
       <h2>Phonebook</h2>
+
+      {successMsg && <div className="success">{successMsg}</div>}
+      {errorMsg && <div className="error">{errorMsg}</div>}
 
       <Filter search={search} setSearch={setSearch} />
 
@@ -221,6 +259,8 @@ const App = () => {
         persons={persons}
         setPersons={setPersons}
         search={search}
+        setSuccessMsg={setSuccessMsg}
+        setErrorMsg={setErrorMsg}
       />
       <h3>Numbers</h3>
 
