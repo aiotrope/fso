@@ -65,8 +65,8 @@
 
 ##### Related branches
 
-- [Solution for Exercise 2.15](https://github.com/aiotrope/fso/tree/part2/2.19/part2/phonebook)
-- [Solution for Exercise 2.16](https://github.com/aiotrope/fso/tree/part2/2.20/part2/phonebook)
+- [Solution for Exercise 2.19](https://github.com/aiotrope/fso/tree/part2/2.19/part2/phonebook)
+- [Solution for Exercise 2.20](https://github.com/aiotrope/fso/tree/part2/2.20/part2/phonebook)
 
 ###### Exercise instruction link
 - [2.19-2.20](https://fullstackopen.com/en/part2/adding_styles_to_react_app#exercises-2-19-2-20)
