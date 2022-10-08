@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import personsService from "./Components/services/persons"; // services
+import personsService from "./services/persons"; // services
 import "./styles.css";
 
 const Filter = ({ search, setSearch }) => {
