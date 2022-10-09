@@ -1,5 +1,5 @@
 # fso
-> Compilation of JavaScript/NodeJS coding exercises.
+> Compilation of JavaScript/React coding exercises.
 
 Maintained by: [Arnel Imperial](https://github.com/aiotrope)
 
@@ -8,11 +8,6 @@ Maintained by: [Arnel Imperial](https://github.com/aiotrope)
 | [0](#part0)     | [part0](https://github.com/aiotrope/fso/tree/main/part0)|
 | [1](#part1)     | [part1](https://github.com/aiotrope/fso/tree/main/part1)|
 | [2](#part2)     | [part2](https://github.com/aiotrope/fso/tree/main/part2)|
-| [3](#part3)     | [part3](https://github.com/aiotrope/fso/tree/main/part3)|
-| 4               | part4          |
-| 5               | part5          |
-| 6               | part6          |
-| 7               | part7          |
 
 <a name="part2"></a>
 

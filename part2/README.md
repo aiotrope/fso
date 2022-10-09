@@ -33,7 +33,7 @@
 
 ### 2.11-2.14 phonebook & dataforcountries
 
-#### [Solution for Exercise 2.12.14: dataforcountries(final)](https://github.com/aiotrope/fso/tree/main/part2/dataforcountries) *
+#### [Solution for Exercise 2.12-2.14: dataforcountries(final)](https://github.com/aiotrope/fso/tree/main/part2/dataforcountries) *
 
 ##### Related branches
 
