@@ -5,15 +5,16 @@ Maintained by: [Arnel Imperial](https://github.com/aiotrope)
 
 | Exercise Parts #| Directory Link |
 |-----------------|----------------|
-| 0               | [part0](https://github.com/aiotrope/fso/tree/main/part0)|
-| 1               | [part1](https://github.com/aiotrope/fso/tree/main/part1)|
-| 2               | [part2](https://github.com/aiotrope/fso/tree/main/part2)|
-| 3               | part3          |
+| [0](#part0)     | [part0](https://github.com/aiotrope/fso/tree/main/part0)|
+| [1](#part1)     | [part1](https://github.com/aiotrope/fso/tree/main/part1)|
+| [2](#part2)     | [part2](https://github.com/aiotrope/fso/tree/main/part2)|
+| [3](#part3)     | [part3](https://github.com/aiotrope/fso/tree/main/part3)|
 | 4               | part4          |
 | 5               | part5          |
 | 6               | part6          |
 | 7               | part7          |
 
+<a name="part2"></a>
 
 ## Part2: Communicating with server
 
@@ -73,6 +74,8 @@ Maintained by: [Arnel Imperial](https://github.com/aiotrope)
 - [Solution for Exercise 2.19](https://github.com/aiotrope/fso/tree/part2/2.19/part2/phonebook)
 - [Solution for Exercise 2.20](https://github.com/aiotrope/fso/tree/part2/2.20/part2/phonebook)
 
+<a name="part1"></a>
+
 ## Part1: Introduction to React
 
 ### Exercise Solutions
@@ -108,11 +111,14 @@ Maintained by: [Arnel Imperial](https://github.com/aiotrope)
 - [Solution for Exercise 1.12](https://github.com/aiotrope/fso/tree/part1/1.12/part1/anecdotes)
 - [Solution for Exercise 1.13](https://github.com/aiotrope/fso/tree/part1/1.13/part1/anecdotes)
 
+
+
 ## Part0: Fundamentals of web apps
 
 ### Exercise Solutions
 
 #### 0.1-0.6
+<a name="part0"></a>
 
 ##### [Solution for Exercise 0.4: New note(final)](https://github.com/aiotrope/fso/tree/main/part0)
 
