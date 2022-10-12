@@ -138,7 +138,8 @@ const PersonForm = ({
       const targetId1 = persons
         .filter((p) => p.name === newName)
         .map((p) => p.id);
-      const targetId = targetId1.toString();
+      const targetId2 = targetId1.toString();
+      const targetId = Number(targetId2);
       //const personID = persons.map((p) => p.id === targetId);
       const updatedEntry = { name: newName, number: newNumber, id: targetId };
       // put request
